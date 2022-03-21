@@ -19,6 +19,10 @@
 		DBA5C7EF27E24D0D00253103 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA5C7EE27E24D0D00253103 /* Extensions.swift */; };
 		DBA5C7F127E24D3600253103 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA5C7F027E24D3600253103 /* Constants.swift */; };
 		DBA5C7F327E24EA100253103 /* ColorSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA5C7F227E24EA100253103 /* ColorSet.swift */; };
+		DBA5C7F527E38A6300253103 /* InfoHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA5C7F427E38A6300253103 /* InfoHeaderView.swift */; };
+		DBA5C7F727E38BC400253103 /* InfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA5C7F627E38BC400253103 /* InfoTableViewCell.swift */; };
+		DBA5C7F927E851DC00253103 /* HabitsCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA5C7F827E851DC00253103 /* HabitsCollectionCell.swift */; };
+		DBA5C7FC27E857D800253103 /* ProgressCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA5C7FB27E857D800253103 /* ProgressCollectionCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +40,10 @@
 		DBA5C7EE27E24D0D00253103 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		DBA5C7F027E24D3600253103 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		DBA5C7F227E24EA100253103 /* ColorSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSet.swift; sourceTree = "<group>"; };
+		DBA5C7F427E38A6300253103 /* InfoHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoHeaderView.swift; sourceTree = "<group>"; };
+		DBA5C7F627E38BC400253103 /* InfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoTableViewCell.swift; sourceTree = "<group>"; };
+		DBA5C7F827E851DC00253103 /* HabitsCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitsCollectionCell.swift; sourceTree = "<group>"; };
+		DBA5C7FB27E857D800253103 /* ProgressCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressCollectionCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,7 +102,9 @@
 			isa = PBXGroup;
 			children = (
 				DBA5C7E927DFAFDE00253103 /* InfoViewController.swift */,
-				DBA5C7EB27E240EC00253103 /* InfoText.swift */,
+				DBA5C7F427E38A6300253103 /* InfoHeaderView.swift */,
+				DBA5C7F627E38BC400253103 /* InfoTableViewCell.swift */,
+				DBA5C7FD27E8582500253103 /* ModelInfoText */,
 			);
 			path = Info;
 			sourceTree = "<group>";
@@ -103,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				DBA5C7E727DFAFCE00253103 /* HabitsViewController.swift */,
+				DBA5C7FA27E8576600253103 /* HabitsCell */,
 			);
 			path = Habit;
 			sourceTree = "<group>";
@@ -115,6 +126,23 @@
 				DBA5C7F227E24EA100253103 /* ColorSet.swift */,
 			);
 			path = SupportFiles;
+			sourceTree = "<group>";
+		};
+		DBA5C7FA27E8576600253103 /* HabitsCell */ = {
+			isa = PBXGroup;
+			children = (
+				DBA5C7F827E851DC00253103 /* HabitsCollectionCell.swift */,
+				DBA5C7FB27E857D800253103 /* ProgressCollectionCell.swift */,
+			);
+			path = HabitsCell;
+			sourceTree = "<group>";
+		};
+		DBA5C7FD27E8582500253103 /* ModelInfoText */ = {
+			isa = PBXGroup;
+			children = (
+				DBA5C7EB27E240EC00253103 /* InfoText.swift */,
+			);
+			path = ModelInfoText;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -195,7 +223,11 @@
 				DBA5C7EC27E240EC00253103 /* InfoText.swift in Sources */,
 				DBA5C7E827DFAFCE00253103 /* HabitsViewController.swift in Sources */,
 				DBA5C7EA27DFAFDE00253103 /* InfoViewController.swift in Sources */,
+				DBA5C7F527E38A6300253103 /* InfoHeaderView.swift in Sources */,
+				DBA5C7F927E851DC00253103 /* HabitsCollectionCell.swift in Sources */,
+				DBA5C7F727E38BC400253103 /* InfoTableViewCell.swift in Sources */,
 				DBA5C7D127DF918B00253103 /* SceneDelegate.swift in Sources */,
+				DBA5C7FC27E857D800253103 /* ProgressCollectionCell.swift in Sources */,
 				DBA5C7F127E24D3600253103 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
