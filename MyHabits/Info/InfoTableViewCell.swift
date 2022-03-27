@@ -12,8 +12,6 @@ class InfoTableViewCell: UITableViewCell {
      lazy var infoText: UILabel = {
         let textView = UILabel()
         textView.font = .systemFont(ofSize: 17, weight: .regular)
-//        textView.isScrollEnabled = true
-//        textView.isEditable = false
          textView.numberOfLines = 0
          textView.textAlignment = .left
         return textView

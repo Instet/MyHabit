@@ -10,7 +10,7 @@ import UIKit
 class InfoViewController: UIViewController {
 
     lazy var infoTableView: UITableView = {
-        let info = UITableView(frame: .zero, style: .grouped)
+        let info = UITableView(frame: .infinite, style: .grouped)
         info.translatesAutoresizingMaskIntoConstraints = false
         info.separatorStyle = .none // удалил разделительные полосы ячеек
         info.dataSource = self
@@ -18,6 +18,7 @@ class InfoViewController: UIViewController {
         info.register(InfoHeaderView.self, forHeaderFooterViewReuseIdentifier: String(describing: InfoHeaderView.self))
         info.register(InfoTableViewCell.self, forCellReuseIdentifier: String(describing: InfoTableViewCell.self))
         info.showsVerticalScrollIndicator = false
+        info.showsLargeContentViewer = false
         info.sectionHeaderHeight = 46
         return info
     }()
@@ -36,9 +37,7 @@ class InfoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Информация"
-        navigationController?.tabBarController?.tabBar.backgroundColor = ColorSet.colorLightGray
-        navigationController?.tabBarController?.tabBar.barTintColor = ColorSet.colorLightGray
-        navigationController?.navigationBar.backgroundColor = ColorSet.colorLightGray
+        self.view.backgroundColor = .white
         setupConstraints()
 
 

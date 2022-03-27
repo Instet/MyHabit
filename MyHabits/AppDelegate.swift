@@ -18,11 +18,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let tabBarController = UITabBarController()
 
         let habitsVC = HabitsViewController()
-        habitsVC.view.backgroundColor = .white
         let habitsNavigationController = UINavigationController(rootViewController: habitsVC)
-
+        
         let infoVC = InfoViewController()
-        infoVC.view.backgroundColor = .white
         let infoNavigationController = UINavigationController(rootViewController: infoVC)
 
         habitsNavigationController.tabBarItem = UITabBarItem(title: "Привычки", image: UIImage(systemName: "rectangle.grid.1x2.fill"), selectedImage: nil)
