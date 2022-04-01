@@ -21,6 +21,7 @@
 		DBA5C7F727E38BC400253103 /* InfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA5C7F627E38BC400253103 /* InfoTableViewCell.swift */; };
 		DBA5C7F927E851DC00253103 /* HabitsCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA5C7F827E851DC00253103 /* HabitsCollectionCell.swift */; };
 		DBA5C7FC27E857D800253103 /* ProgressCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA5C7FB27E857D800253103 /* ProgressCollectionCell.swift */; };
+		DBA5C80127F2097100253103 /* HabitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA5C80027F2097100253103 /* HabitViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		DBA5C7F627E38BC400253103 /* InfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoTableViewCell.swift; sourceTree = "<group>"; };
 		DBA5C7F827E851DC00253103 /* HabitsCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitsCollectionCell.swift; sourceTree = "<group>"; };
 		DBA5C7FB27E857D800253103 /* ProgressCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressCollectionCell.swift; sourceTree = "<group>"; };
+		DBA5C80027F2097100253103 /* HabitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,7 +74,7 @@
 		DBA5C7CD27DF918B00253103 /* MyHabits */ = {
 			isa = PBXGroup;
 			children = (
-				DBA5C7E627DFAF9200253103 /* Habit */,
+				DBA5C7E627DFAF9200253103 /* Habits */,
 				DBA5C7E527DFAF8800253103 /* Info */,
 				DBA5C7E227DFA3F100253103 /* Storage */,
 				DBA5C7ED27E24C9F00253103 /* SupportFiles */,
@@ -103,13 +105,14 @@
 			path = Info;
 			sourceTree = "<group>";
 		};
-		DBA5C7E627DFAF9200253103 /* Habit */ = {
+		DBA5C7E627DFAF9200253103 /* Habits */ = {
 			isa = PBXGroup;
 			children = (
 				DBA5C7E727DFAFCE00253103 /* HabitsViewController.swift */,
+				DBA5C7FF27F2092C00253103 /* SettingHabit */,
 				DBA5C7FA27E8576600253103 /* HabitsCell */,
 			);
-			path = Habit;
+			path = Habits;
 			sourceTree = "<group>";
 		};
 		DBA5C7ED27E24C9F00253103 /* SupportFiles */ = {
@@ -137,6 +140,14 @@
 				DBA5C7EB27E240EC00253103 /* InfoText.swift */,
 			);
 			path = ModelInfoText;
+			sourceTree = "<group>";
+		};
+		DBA5C7FF27F2092C00253103 /* SettingHabit */ = {
+			isa = PBXGroup;
+			children = (
+				DBA5C80027F2097100253103 /* HabitViewController.swift */,
+			);
+			path = SettingHabit;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -215,6 +226,7 @@
 				DBA5C7F327E24EA100253103 /* ColorSet.swift in Sources */,
 				DBA5C7EC27E240EC00253103 /* InfoText.swift in Sources */,
 				DBA5C7E827DFAFCE00253103 /* HabitsViewController.swift in Sources */,
+				DBA5C80127F2097100253103 /* HabitViewController.swift in Sources */,
 				DBA5C7EA27DFAFDE00253103 /* InfoViewController.swift in Sources */,
 				DBA5C7F527E38A6300253103 /* InfoHeaderView.swift in Sources */,
 				DBA5C7F927E851DC00253103 /* HabitsCollectionCell.swift in Sources */,

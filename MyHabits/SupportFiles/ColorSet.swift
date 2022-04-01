@@ -17,6 +17,7 @@ struct ColorSet {
     static var colorOrange = UIColor(named: "Orange")
     static var colorSystemGray = UIColor(named: "SystemGray")
     static var colorSystemGray2 = UIColor(named: "SystemGray2")
+    static var colorBar = UIColor(named: "ColorBar")
 
 
 }
