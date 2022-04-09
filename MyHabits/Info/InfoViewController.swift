@@ -10,7 +10,7 @@ import UIKit
 class InfoViewController: UIViewController {
 
     lazy var infoTableView: UITableView = {
-        let info = UITableView(frame: .infinite, style: .grouped)
+        let info = UITableView(frame: .zero, style: .grouped)
         info.translatesAutoresizingMaskIntoConstraints = false
         info.separatorStyle = .none // удалил разделительные полосы ячеек
         info.dataSource = self
@@ -42,7 +42,7 @@ class InfoViewController: UIViewController {
 
 
     }
-    
+
 }
 
 

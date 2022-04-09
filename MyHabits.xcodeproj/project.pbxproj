@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DB7F51CA280017670070251A /* HabitDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7F51C9280017670070251A /* HabitDetailsViewController.swift */; };
+		DB7F51CC2801FCA90070251A /* HabitDetailsTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7F51CB2801FCA90070251A /* HabitDetailsTableViewHeader.swift */; };
+		DB7F51CF280201460070251A /* HabitDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7F51CE280201460070251A /* HabitDetailTableViewCell.swift */; };
 		DBA5C7CF27DF918B00253103 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA5C7CE27DF918B00253103 /* AppDelegate.swift */; };
 		DBA5C7D827DF918C00253103 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DBA5C7D727DF918C00253103 /* Assets.xcassets */; };
 		DBA5C7DB27DF918C00253103 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBA5C7D927DF918C00253103 /* LaunchScreen.storyboard */; };
@@ -25,6 +28,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DB7F51C9280017670070251A /* HabitDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitDetailsViewController.swift; sourceTree = "<group>"; };
+		DB7F51CB2801FCA90070251A /* HabitDetailsTableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitDetailsTableViewHeader.swift; sourceTree = "<group>"; };
+		DB7F51CE280201460070251A /* HabitDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitDetailTableViewCell.swift; sourceTree = "<group>"; };
 		DBA5C7CB27DF918B00253103 /* MyHabits.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyHabits.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBA5C7CE27DF918B00253103 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DBA5C7D727DF918C00253103 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -55,6 +61,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DB7F51CD280200030070251A /* HabitDetails */ = {
+			isa = PBXGroup;
+			children = (
+				DB7F51C9280017670070251A /* HabitDetailsViewController.swift */,
+				DB7F51CB2801FCA90070251A /* HabitDetailsTableViewHeader.swift */,
+				DB7F51CE280201460070251A /* HabitDetailTableViewCell.swift */,
+			);
+			path = HabitDetails;
+			sourceTree = "<group>";
+		};
 		DBA5C7C227DF918A00253103 = {
 			isa = PBXGroup;
 			children = (
@@ -75,6 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				DBA5C7E627DFAF9200253103 /* Habits */,
+				DB7F51CD280200030070251A /* HabitDetails */,
 				DBA5C7E527DFAF8800253103 /* Info */,
 				DBA5C7E227DFA3F100253103 /* Storage */,
 				DBA5C7ED27E24C9F00253103 /* SupportFiles */,
@@ -224,12 +241,15 @@
 				DBA5C7CF27DF918B00253103 /* AppDelegate.swift in Sources */,
 				DBA5C7EF27E24D0D00253103 /* Extensions.swift in Sources */,
 				DBA5C7F327E24EA100253103 /* ColorSet.swift in Sources */,
+				DB7F51CC2801FCA90070251A /* HabitDetailsTableViewHeader.swift in Sources */,
 				DBA5C7EC27E240EC00253103 /* InfoText.swift in Sources */,
 				DBA5C7E827DFAFCE00253103 /* HabitsViewController.swift in Sources */,
+				DB7F51CF280201460070251A /* HabitDetailTableViewCell.swift in Sources */,
 				DBA5C80127F2097100253103 /* HabitViewController.swift in Sources */,
 				DBA5C7EA27DFAFDE00253103 /* InfoViewController.swift in Sources */,
 				DBA5C7F527E38A6300253103 /* InfoHeaderView.swift in Sources */,
 				DBA5C7F927E851DC00253103 /* HabitsCollectionCell.swift in Sources */,
+				DB7F51CA280017670070251A /* HabitDetailsViewController.swift in Sources */,
 				DBA5C7F727E38BC400253103 /* InfoTableViewCell.swift in Sources */,
 				DBA5C7FC27E857D800253103 /* ProgressCollectionCell.swift in Sources */,
 				DBA5C7F127E24D3600253103 /* Constants.swift in Sources */,
@@ -369,10 +389,11 @@
 		DBA5C7E027DF918C00253103 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 46SB5959W9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MyHabits/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "My Habits";
@@ -385,8 +406,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.iosui.MyHabits;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.iosui-MyHabit";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -396,10 +418,11 @@
 		DBA5C7E127DF918C00253103 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 46SB5959W9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MyHabits/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "My Habits";
@@ -412,8 +435,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.iosui.MyHabits;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.iosui-MyHabit";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

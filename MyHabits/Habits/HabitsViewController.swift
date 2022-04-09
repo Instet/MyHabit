@@ -9,19 +9,11 @@ import UIKit
 
 class HabitsViewController: UIViewController {
 
-    public static let habitSingl: HabitsViewController = .init()
 
-    lazy var layout: UICollectionViewFlowLayout = {
+    static var habitCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
-    
-
-        return layout
-    }()
-
-    lazy var habitCollectionView: UICollectionView = {
         let habit = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        habit.translatesAutoresizingMaskIntoConstraints = false
         habit.backgroundColor = ColorSet.colorLightGray
         return habit
     }()
@@ -37,7 +29,9 @@ class HabitsViewController: UIViewController {
 
 
     override func viewWillAppear(_ animated: Bool) {
+        navigationController?.navigationBar.scrollEdgeAppearance = UINavigationBarAppearance()
         setupNavigationBar()
+        HabitsViewController.habitCollectionView.reloadData()
 
     }
 
@@ -45,22 +39,21 @@ class HabitsViewController: UIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = .white
         setupConstraints()
-        habitCollectionView.register(ProgressCollectionCell.self, forCellWithReuseIdentifier: String(describing: ProgressCollectionCell.self))
-        habitCollectionView.dataSource = self
-        habitCollectionView.delegate = self
+        HabitsViewController.habitCollectionView.register(ProgressCollectionCell.self, forCellWithReuseIdentifier: String(describing: ProgressCollectionCell.self))
+        HabitsViewController.habitCollectionView.register(HabitsCollectionCell.self, forCellWithReuseIdentifier: String(describing: HabitsCollectionCell.self))
+        HabitsViewController.habitCollectionView.dataSource = self
+        HabitsViewController.habitCollectionView.delegate = self
 
     }
 
-
-
     private func setupConstraints() {
-        view.addSubViews(view: habitCollectionView)
+        view.addSubViews(view: HabitsViewController.habitCollectionView)
 
         NSLayoutConstraint.activate([
-            habitCollectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            habitCollectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            habitCollectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            habitCollectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+            HabitsViewController.habitCollectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            HabitsViewController.habitCollectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            HabitsViewController.habitCollectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            HabitsViewController.habitCollectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
     }
 
@@ -69,20 +62,22 @@ class HabitsViewController: UIViewController {
         navigationController?.navigationBar.isHidden = false
         navigationController?.navigationBar.tintColor = ColorSet.colorPurple
         self.title = "Сегодня"
-        // проверка на версию
+
         if #available(iOS 11.0, *) {
             navigationController?.navigationBar.prefersLargeTitles = true
+            navigationController?.navigationItem.largeTitleDisplayMode = .always
+
         }
         navigationItem.rightBarButtonItem = addHabit
     }
 
 
-    // переход на экран создания привычки
-    
+    /// переход на экран создания привычки
     @objc func addNewHabit() {
         let newHabit = HabitViewController(nil)
         let newHabitNC = UINavigationController(rootViewController: newHabit)
         newHabitNC.modalPresentationStyle = .fullScreen
+
         navigationController?.present(newHabitNC, animated: true)
 
     }
@@ -90,11 +85,11 @@ class HabitsViewController: UIViewController {
 }
 
 extension HabitsViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    // количество секций
+    /// количество секций
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 2
     }
-    // количество ячеек в секции
+    /// количество ячеек в секции
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if section == 0 {
             return 1
@@ -112,12 +107,18 @@ extension HabitsViewController: UICollectionViewDataSource, UICollectionViewDele
             cell.dateProgressView()
 
             return cell
+        } else {
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: HabitsCollectionCell.self), for: indexPath) as? HabitsCollectionCell else { return UICollectionViewCell() }
+
+            cell.setupHabit(HabitsStore.shared.habits[indexPath.item])
+
+
+            return cell
         }
 
-        return UICollectionViewCell()
     }
 
-    // координаты ячеек
+    /// координаты ячеек
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         if section == 0 {
             return UIEdgeInsets(top: 22, left: 16, bottom: 18, right: 16)
@@ -126,7 +127,7 @@ extension HabitsViewController: UICollectionViewDataSource, UICollectionViewDele
         }
     }
 
-    // размеры ячеек
+    /// размеры ячеек
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if indexPath.section == 0 {
             let width = collectionView.bounds.width - 32
@@ -134,6 +135,20 @@ extension HabitsViewController: UICollectionViewDataSource, UICollectionViewDele
         } else {
             let width = collectionView.bounds.width - 32
             return CGSize(width: width, height: 130)
+        }
+    }
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if indexPath.section == 0 {
+            return
+        } else {
+            guard let item = collectionView.cellForItem(at: indexPath) as? HabitsCollectionCell else { return }
+            if let habit = item.habit {
+                navigationController?.pushViewController(HabitDetailsViewController(habit), animated: false)
+
+
+            }
+
         }
     }
 
