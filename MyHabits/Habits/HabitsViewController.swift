@@ -15,6 +15,7 @@ class HabitsViewController: UIViewController {
         layout.scrollDirection = .vertical
         let habit = UICollectionView(frame: .zero, collectionViewLayout: layout)
         habit.backgroundColor = ColorSet.colorLightGray
+        habit.showsVerticalScrollIndicator = false
         return habit
     }()
 

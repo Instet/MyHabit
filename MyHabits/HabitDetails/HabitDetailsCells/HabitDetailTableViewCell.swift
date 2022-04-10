@@ -37,9 +37,14 @@ class HabitDetailTableViewCell: UITableViewCell {
         ])
     }
 
+    func configure(_ index: Int) {
+        labelDay.text = HabitsStore.shared.trackDateString(forIndex: index)
+    }
+
 
     override func layoutSubviews() {
         super.layoutSubviews()
         setupConstraintsCell()
+        self.selectionStyle = .none
     }
 }

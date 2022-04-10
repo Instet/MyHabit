@@ -65,10 +65,27 @@
 			isa = PBXGroup;
 			children = (
 				DB7F51C9280017670070251A /* HabitDetailsViewController.swift */,
-				DB7F51CB2801FCA90070251A /* HabitDetailsTableViewHeader.swift */,
-				DB7F51CE280201460070251A /* HabitDetailTableViewCell.swift */,
+				DB7F51D02802A4560070251A /* HabitDetailsCells */,
 			);
 			path = HabitDetails;
+			sourceTree = "<group>";
+		};
+		DB7F51D02802A4560070251A /* HabitDetailsCells */ = {
+			isa = PBXGroup;
+			children = (
+				DB7F51CE280201460070251A /* HabitDetailTableViewCell.swift */,
+				DB7F51CB2801FCA90070251A /* HabitDetailsTableViewHeader.swift */,
+			);
+			path = HabitDetailsCells;
+			sourceTree = "<group>";
+		};
+		DB7F51D12802A4800070251A /* InfoCells */ = {
+			isa = PBXGroup;
+			children = (
+				DBA5C7F627E38BC400253103 /* InfoTableViewCell.swift */,
+				DBA5C7F427E38A6300253103 /* InfoHeaderView.swift */,
+			);
+			path = InfoCells;
 			sourceTree = "<group>";
 		};
 		DBA5C7C227DF918A00253103 = {
@@ -93,7 +110,7 @@
 				DBA5C7E627DFAF9200253103 /* Habits */,
 				DB7F51CD280200030070251A /* HabitDetails */,
 				DBA5C7E527DFAF8800253103 /* Info */,
-				DBA5C7E227DFA3F100253103 /* Storage */,
+				DBA5C7E227DFA3F100253103 /* HabitDataStorage */,
 				DBA5C7ED27E24C9F00253103 /* SupportFiles */,
 				DBA5C7CE27DF918B00253103 /* AppDelegate.swift */,
 				DBA5C7D727DF918C00253103 /* Assets.xcassets */,
@@ -103,20 +120,19 @@
 			path = MyHabits;
 			sourceTree = "<group>";
 		};
-		DBA5C7E227DFA3F100253103 /* Storage */ = {
+		DBA5C7E227DFA3F100253103 /* HabitDataStorage */ = {
 			isa = PBXGroup;
 			children = (
 				DBA5C7E327DFA44900253103 /* HabitsStore.swift */,
 			);
-			path = Storage;
+			path = HabitDataStorage;
 			sourceTree = "<group>";
 		};
 		DBA5C7E527DFAF8800253103 /* Info */ = {
 			isa = PBXGroup;
 			children = (
 				DBA5C7E927DFAFDE00253103 /* InfoViewController.swift */,
-				DBA5C7F427E38A6300253103 /* InfoHeaderView.swift */,
-				DBA5C7F627E38BC400253103 /* InfoTableViewCell.swift */,
+				DB7F51D12802A4800070251A /* InfoCells */,
 				DBA5C7FD27E8582500253103 /* ModelInfoText */,
 			);
 			path = Info;
@@ -127,7 +143,7 @@
 			children = (
 				DBA5C7E727DFAFCE00253103 /* HabitsViewController.swift */,
 				DBA5C7FF27F2092C00253103 /* SettingHabit */,
-				DBA5C7FA27E8576600253103 /* HabitsCell */,
+				DBA5C7FA27E8576600253103 /* HabitsCells */,
 			);
 			path = Habits;
 			sourceTree = "<group>";
@@ -142,13 +158,13 @@
 			path = SupportFiles;
 			sourceTree = "<group>";
 		};
-		DBA5C7FA27E8576600253103 /* HabitsCell */ = {
+		DBA5C7FA27E8576600253103 /* HabitsCells */ = {
 			isa = PBXGroup;
 			children = (
 				DBA5C7F827E851DC00253103 /* HabitsCollectionCell.swift */,
 				DBA5C7FB27E857D800253103 /* ProgressCollectionCell.swift */,
 			);
-			path = HabitsCell;
+			path = HabitsCells;
 			sourceTree = "<group>";
 		};
 		DBA5C7FD27E8582500253103 /* ModelInfoText */ = {

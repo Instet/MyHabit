@@ -11,7 +11,6 @@ class InfoViewController: UIViewController {
 
     lazy var infoTableView: UITableView = {
         let info = UITableView(frame: .zero, style: .grouped)
-        info.translatesAutoresizingMaskIntoConstraints = false
         info.separatorStyle = .none // удалил разделительные полосы ячеек
         info.dataSource = self
         info.delegate = self
@@ -24,7 +23,7 @@ class InfoViewController: UIViewController {
     }()
 
     private func setupConstraints() {
-        view.addSubview(infoTableView)
+        view.addSubViews(view: infoTableView)
         NSLayoutConstraint.activate([
 
             infoTableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
