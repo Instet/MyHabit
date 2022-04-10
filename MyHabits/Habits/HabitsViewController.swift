@@ -72,8 +72,6 @@ class HabitsViewController: UIViewController {
         navigationItem.rightBarButtonItem = addHabit
     }
 
-
-    /// переход на экран создания привычки
     @objc func addNewHabit() {
         let newHabit = HabitViewController(nil)
         let newHabitNC = UINavigationController(rootViewController: newHabit)
@@ -86,11 +84,10 @@ class HabitsViewController: UIViewController {
 }
 
 extension HabitsViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    /// количество секций
+
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 2
     }
-    /// количество ячеек в секции
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if section == 0 {
             return 1
@@ -119,7 +116,6 @@ extension HabitsViewController: UICollectionViewDataSource, UICollectionViewDele
 
     }
 
-    /// координаты ячеек
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         if section == 0 {
             return UIEdgeInsets(top: 22, left: 16, bottom: 18, right: 16)
@@ -128,7 +124,6 @@ extension HabitsViewController: UICollectionViewDataSource, UICollectionViewDele
         }
     }
 
-    /// размеры ячеек
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         if indexPath.section == 0 {
             let width = collectionView.bounds.width - 32

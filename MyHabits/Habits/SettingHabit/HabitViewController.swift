@@ -111,7 +111,6 @@ class HabitViewController: UIViewController {
         datePicker.backgroundColor = .white
         datePicker.date = date
         datePicker.datePickerMode = .time
-        // изменяем вид отображение датапиккер
         datePicker.preferredDatePickerStyle = .wheels
         datePicker.tintColor = ColorSet.colorPurple
         datePicker.addTarget(self, action: #selector(dateSetup), for: .valueChanged)
@@ -208,8 +207,6 @@ class HabitViewController: UIViewController {
         nameHabitTF.resignFirstResponder()
     }
 
-
-    ///  отмена сохранения
     @objc func cancelSave() {
         if let oldHabit = habit {
             oldHabit.name = nameHabit
@@ -280,7 +277,6 @@ class HabitViewController: UIViewController {
 
 extension HabitViewController: UIColorPickerViewControllerDelegate {
 
-    /// изменяет цвет везде при выборе текущего
     func colorPickerViewControllerDidFinish(_ viewController: UIColorPickerViewController) {
         colorHabit = viewController.selectedColor
     }

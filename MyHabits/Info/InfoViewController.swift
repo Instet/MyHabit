@@ -11,7 +11,7 @@ class InfoViewController: UIViewController {
 
     lazy var infoTableView: UITableView = {
         let info = UITableView(frame: .zero, style: .grouped)
-        info.separatorStyle = .none // удалил разделительные полосы ячеек
+        info.separatorStyle = .none 
         info.dataSource = self
         info.delegate = self
         info.register(InfoHeaderView.self, forHeaderFooterViewReuseIdentifier: String(describing: InfoHeaderView.self))

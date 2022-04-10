@@ -56,8 +56,6 @@ class ProgressCollectionCell: UICollectionViewCell {
         progressBar.text = String(Int(HabitsStore.shared.todayProgress * 100)) + "%"
     }
 
-
-    /// настройка внешнего вида ячйки прогресса (подпредставление)
     override func layoutSubviews() {
         super.layoutSubviews()
         self.backgroundColor = .white

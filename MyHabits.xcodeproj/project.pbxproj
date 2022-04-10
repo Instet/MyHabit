@@ -10,6 +10,7 @@
 		DB7F51CA280017670070251A /* HabitDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7F51C9280017670070251A /* HabitDetailsViewController.swift */; };
 		DB7F51CC2801FCA90070251A /* HabitDetailsTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7F51CB2801FCA90070251A /* HabitDetailsTableViewHeader.swift */; };
 		DB7F51CF280201460070251A /* HabitDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7F51CE280201460070251A /* HabitDetailTableViewCell.swift */; };
+		DB7F51D32802C7910070251A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB7F51D22802C7910070251A /* Images.xcassets */; };
 		DBA5C7CF27DF918B00253103 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA5C7CE27DF918B00253103 /* AppDelegate.swift */; };
 		DBA5C7D827DF918C00253103 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DBA5C7D727DF918C00253103 /* Assets.xcassets */; };
 		DBA5C7DB27DF918C00253103 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBA5C7D927DF918C00253103 /* LaunchScreen.storyboard */; };
@@ -31,6 +32,7 @@
 		DB7F51C9280017670070251A /* HabitDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitDetailsViewController.swift; sourceTree = "<group>"; };
 		DB7F51CB2801FCA90070251A /* HabitDetailsTableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitDetailsTableViewHeader.swift; sourceTree = "<group>"; };
 		DB7F51CE280201460070251A /* HabitDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitDetailTableViewCell.swift; sourceTree = "<group>"; };
+		DB7F51D22802C7910070251A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		DBA5C7CB27DF918B00253103 /* MyHabits.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyHabits.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBA5C7CE27DF918B00253103 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DBA5C7D727DF918C00253103 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 				DBA5C7D727DF918C00253103 /* Assets.xcassets */,
 				DBA5C7D927DF918C00253103 /* LaunchScreen.storyboard */,
 				DBA5C7DC27DF918C00253103 /* Info.plist */,
+				DB7F51D22802C7910070251A /* Images.xcassets */,
 			);
 			path = MyHabits;
 			sourceTree = "<group>";
@@ -241,6 +244,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB7F51D32802C7910070251A /* Images.xcassets in Resources */,
 				DBA5C7DB27DF918C00253103 /* LaunchScreen.storyboard in Resources */,
 				DBA5C7D827DF918C00253103 /* Assets.xcassets in Resources */,
 			);
@@ -290,6 +294,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -351,6 +356,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -405,10 +411,13 @@
 		DBA5C7E027DF918C00253103 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 46SB5959W9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MyHabits/Info.plist;
@@ -434,10 +443,13 @@
 		DBA5C7E127DF918C00253103 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 46SB5959W9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = MyHabits/Info.plist;
