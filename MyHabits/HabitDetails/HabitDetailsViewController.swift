@@ -20,6 +20,8 @@ class HabitDetailsViewController: UIViewController {
         return button
     }()
 
+
+
     init(_ habit: Habit) {
         self.habit = habit
         super.init(nibName: nil, bundle: nil)
@@ -47,6 +49,10 @@ class HabitDetailsViewController: UIViewController {
     }
 
     @objc func editHabit() {
+        let habitEdit = HabitViewController(habit)
+        navigationController?.pushViewController(habitEdit, animated: true)
+        navigationController?.tabBarController?.tabBar.isHidden = true
+
 
     }
 

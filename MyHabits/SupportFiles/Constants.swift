@@ -32,4 +32,10 @@ struct Constants {
     static var overBigMargin: CGFloat = 40
     static var bottonMarginCell: CGFloat = -20
 
+    // MARK: HabitDetailsTableViewCell - Margin
+    static var topMarginTV: CGFloat = 11
+    static var bottomMarginTV: CGFloat = -11
+    static var trailingMarginChecker: CGFloat = -14
+
+
 }

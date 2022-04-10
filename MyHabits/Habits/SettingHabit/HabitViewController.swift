@@ -138,6 +138,8 @@ class HabitViewController: UIViewController {
             nameHabitTF.text = nameHabit
             removeHabit.isHidden = false
             self.title = "Править"
+            navigationItem.rightBarButtonItem = saveHabit
+            navigationItem.leftBarButtonItem = cancelSaveHabit
         } else {
             removeHabit.isHidden = true
             self.title = "Создать"
@@ -209,7 +211,16 @@ class HabitViewController: UIViewController {
 
     ///  отмена сохранения
     @objc func cancelSave() {
-        dismiss(animated: true, completion: nil)
+        if let oldHabit = habit {
+            oldHabit.name = nameHabit
+            oldHabit.date = date
+            oldHabit.color = colorHabit
+            HabitsStore.shared.save()
+            HabitsViewController.habitCollectionView.reloadData()
+            navigationController?.popToRootViewController(animated: true)
+        } else {
+            dismiss(animated: true, completion: nil)
+        }
     }
 
 
@@ -220,13 +231,13 @@ class HabitViewController: UIViewController {
             oldHabit.color = colorHabit
             HabitsStore.shared.save()
             HabitsViewController.habitCollectionView.reloadData()
+            navigationController?.popToRootViewController(animated: true)
         } else {
             let newHabit = Habit(name: nameHabit, date: date, color: colorHabit)
             let store = HabitsStore.shared
             store.habits.append(newHabit)
             dismiss(animated: true, completion: nil)
         }
-
     }
 
     @objc func addNameHabit() {
@@ -252,10 +263,10 @@ class HabitViewController: UIViewController {
             if let thisHabit = habit {
                 HabitsStore.shared.habits.removeAll(where: {$0 == thisHabit})
                 HabitsViewController.habitCollectionView.reloadData()
-                self.dismiss(animated: true, completion: nil)
-                navigationController?.popViewController(animated: true)
 
             }
+            navigationController?.popToRootViewController(animated: true)
+            navigationController?.tabBarController?.tabBar.isHidden = false
 
         }
         alert.addAction(cancel)

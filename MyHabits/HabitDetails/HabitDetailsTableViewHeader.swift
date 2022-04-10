@@ -16,15 +16,6 @@ class HabitDetailsTableViewHeader: UITableViewHeaderFooterView {
         return label
     }()
 
-    override init(reuseIdentifier: String?) {
-        super.init(reuseIdentifier: reuseIdentifier)
-        setupHeader()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
 
     private func setupHeader() {
         contentView.addSubViews(view: headerLabel)
@@ -34,5 +25,10 @@ class HabitDetailsTableViewHeader: UITableViewHeaderFooterView {
             headerLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: Constants.topMargin)
 
         ])
+    }
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        setupHeader()
     }
 }
