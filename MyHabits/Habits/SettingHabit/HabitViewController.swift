@@ -8,7 +8,7 @@
 import UIKit
 
 class HabitViewController: UIViewController {
-
+    
     weak var habit: Habit?
 
     var isEdit: Bool = false
@@ -40,7 +40,7 @@ class HabitViewController: UIViewController {
         return button
     }()
 
-     lazy var cancelSaveHabit: UIBarButtonItem = {
+    lazy var cancelSaveHabit: UIBarButtonItem = {
         let cancel = UIBarButtonItem()
         cancel.title = "Отменить"
         cancel.tintColor = ColorSet.colorPurple
@@ -227,7 +227,7 @@ class HabitViewController: UIViewController {
         if isEdit == false {
             navigationController?.popToRootViewController(animated: true)
         }
-            dismiss(animated: true, completion: nil)
+        dismiss(animated: true, completion: nil)
     }
 
 

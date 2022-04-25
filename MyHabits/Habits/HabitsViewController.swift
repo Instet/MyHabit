@@ -10,7 +10,7 @@ import UIKit
 class HabitsViewController: UIViewController {
 
 
-      var habitCollectionView: UICollectionView = {
+    var habitCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         let habit = UICollectionView(frame: .zero, collectionViewLayout: layout)

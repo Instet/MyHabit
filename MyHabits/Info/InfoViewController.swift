@@ -39,7 +39,6 @@ class InfoViewController: UIViewController {
         self.view.backgroundColor = .white
         setupConstraints()
 
-
     }
 
 }

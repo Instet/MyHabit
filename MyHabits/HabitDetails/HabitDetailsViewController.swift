@@ -70,13 +70,7 @@ class HabitDetailsViewController: UIViewController {
 
     @objc func editHabit() {
         let habitEdit = HabitViewController(habit)
-//        let habitNC = UINavigationController(rootViewController: habitEdit)
-//        habitNC.modalPresentationStyle = .fullScreen
         navigationController?.pushViewController(habitEdit, animated: true)
-        //navigationController?.present(habitNC, animated: true)
-        //navigationController?.tabBarController?.tabBar.isHidden = true
-
-
     }
 
 }
