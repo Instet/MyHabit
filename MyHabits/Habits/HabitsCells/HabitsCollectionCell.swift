@@ -10,6 +10,8 @@ import UIKit
 class HabitsCollectionCell: UICollectionViewCell {
 
     weak var habit: Habit?
+    var habitReloadDate: (() -> ())?
+
 
     lazy var nameHabit: UILabel = {
         let nameHabit =  UILabel()
@@ -101,7 +103,9 @@ class HabitsCollectionCell: UICollectionViewCell {
     @objc func tapProgressHabit() {
         if let trackHabit = habit {
             HabitsStore.shared.track(trackHabit)
-            HabitsViewController.habitCollectionView.reloadData()
+            habitReloadDate?()
+
+
         }
 
     }

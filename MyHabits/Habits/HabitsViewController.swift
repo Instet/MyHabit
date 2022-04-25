@@ -10,12 +10,13 @@ import UIKit
 class HabitsViewController: UIViewController {
 
 
-    static var habitCollectionView: UICollectionView = {
+      var habitCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         let habit = UICollectionView(frame: .zero, collectionViewLayout: layout)
         habit.backgroundColor = ColorSet.colorLightGray
         habit.showsVerticalScrollIndicator = false
+        habit.reloadData()
         return habit
     }()
 
@@ -32,7 +33,7 @@ class HabitsViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.scrollEdgeAppearance = UINavigationBarAppearance()
         setupNavigationBar()
-        HabitsViewController.habitCollectionView.reloadData()
+        habitCollectionView.reloadData()
 
     }
 
@@ -40,21 +41,21 @@ class HabitsViewController: UIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = .white
         setupConstraints()
-        HabitsViewController.habitCollectionView.register(ProgressCollectionCell.self, forCellWithReuseIdentifier: String(describing: ProgressCollectionCell.self))
-        HabitsViewController.habitCollectionView.register(HabitsCollectionCell.self, forCellWithReuseIdentifier: String(describing: HabitsCollectionCell.self))
-        HabitsViewController.habitCollectionView.dataSource = self
-        HabitsViewController.habitCollectionView.delegate = self
+        habitCollectionView.register(ProgressCollectionCell.self, forCellWithReuseIdentifier: String(describing: ProgressCollectionCell.self))
+        habitCollectionView.register(HabitsCollectionCell.self, forCellWithReuseIdentifier: String(describing: HabitsCollectionCell.self))
+        habitCollectionView.dataSource = self
+        habitCollectionView.delegate = self
 
     }
 
     private func setupConstraints() {
-        view.addSubViews(view: HabitsViewController.habitCollectionView)
+        view.addSubViews(view: habitCollectionView)
 
         NSLayoutConstraint.activate([
-            HabitsViewController.habitCollectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            HabitsViewController.habitCollectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            HabitsViewController.habitCollectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            HabitsViewController.habitCollectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+            habitCollectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            habitCollectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            habitCollectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            habitCollectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
     }
 
@@ -62,12 +63,12 @@ class HabitsViewController: UIViewController {
     private func setupNavigationBar() {
         navigationController?.navigationBar.isHidden = false
         navigationController?.navigationBar.tintColor = ColorSet.colorPurple
-        self.title = "Сегодня"
+        self.navigationItem.title = "Сегодня"
+        
 
         if #available(iOS 11.0, *) {
             navigationController?.navigationBar.prefersLargeTitles = true
             navigationController?.navigationItem.largeTitleDisplayMode = .always
-
         }
         navigationItem.rightBarButtonItem = addHabit
     }
@@ -82,6 +83,8 @@ class HabitsViewController: UIViewController {
     }
 
 }
+
+
 
 extension HabitsViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
@@ -109,6 +112,9 @@ extension HabitsViewController: UICollectionViewDataSource, UICollectionViewDele
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: HabitsCollectionCell.self), for: indexPath) as? HabitsCollectionCell else { return UICollectionViewCell() }
 
             cell.setupHabit(HabitsStore.shared.habits[indexPath.item])
+            cell.habitReloadDate = { [ weak self ] in
+                self?.habitCollectionView.reloadData()
+            }
 
 
             return cell
@@ -147,7 +153,5 @@ extension HabitsViewController: UICollectionViewDataSource, UICollectionViewDele
 
         }
     }
-
-
 
 }

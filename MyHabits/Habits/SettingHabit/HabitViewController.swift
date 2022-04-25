@@ -11,6 +11,8 @@ class HabitViewController: UIViewController {
 
     weak var habit: Habit?
 
+    var isEdit: Bool = false
+
     var colorHabit: UIColor = ColorSet.colorOrange! {
         didSet {
             nameHabitTF.textColor = colorHabit
@@ -61,8 +63,7 @@ class HabitViewController: UIViewController {
         name.placeholder = "Бегать по утрам, спать 8 часов и т. п."
         name.font = .systemFont(ofSize: 17, weight: .regular)
         name.textColor = colorHabit
-        // добавим в оутлет nameHabit наше название привычки
-        name.addTarget(self, action: #selector(addNameHabit), for: .editingChanged)
+        name.addTarget(self, action: #selector(universalSaveButton), for: .editingChanged)
         name.returnKeyType = .done
         return name
     }()
@@ -121,7 +122,6 @@ class HabitViewController: UIViewController {
         let button = UIButton()
         button.setTitle("Удалить привычку", for: .normal)
         button.setTitleColor(.systemRed, for: .normal)
-        ///alert
         button.addTarget(self, action: #selector(deletedHabit), for: .touchUpInside)
         return button
     }()
@@ -151,12 +151,26 @@ class HabitViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tabBarController?.tabBar.isHidden = true
+
+    }
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         setupConstraints()
         let gesture = UITapGestureRecognizer(target: self, action: #selector(tapGesture))
         view.addGestureRecognizer(gesture)
+        universalSaveButton()
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        tabBarController?.tabBar.isHidden = false
     }
 
 
@@ -201,6 +215,7 @@ class HabitViewController: UIViewController {
 
     @objc func dateSetup( _ sender: UIDatePicker) {
         date = sender.date
+        universalSaveButton()
     }
 
     @objc func tapGesture() {
@@ -208,16 +223,11 @@ class HabitViewController: UIViewController {
     }
 
     @objc func cancelSave() {
-        if let oldHabit = habit {
-            oldHabit.name = nameHabit
-            oldHabit.date = date
-            oldHabit.color = colorHabit
-            HabitsStore.shared.save()
-            HabitsViewController.habitCollectionView.reloadData()
+
+        if isEdit == false {
             navigationController?.popToRootViewController(animated: true)
-        } else {
-            dismiss(animated: true, completion: nil)
         }
+            dismiss(animated: true, completion: nil)
     }
 
 
@@ -227,7 +237,6 @@ class HabitViewController: UIViewController {
             oldHabit.date = date
             oldHabit.color = colorHabit
             HabitsStore.shared.save()
-            HabitsViewController.habitCollectionView.reloadData()
             navigationController?.popToRootViewController(animated: true)
         } else {
             let newHabit = Habit(name: nameHabit, date: date, color: colorHabit)
@@ -237,9 +246,14 @@ class HabitViewController: UIViewController {
         }
     }
 
-    @objc func addNameHabit() {
-        if let text = nameHabitTF.text {
-            nameHabit = text
+    @objc func universalSaveButton() {
+        if nameHabitTF.text?.isEmpty == true || equotable() == true{
+            navigationItem.rightBarButtonItem?.isEnabled = false
+        } else {
+            navigationItem.rightBarButtonItem?.isEnabled = true
+            if let text = nameHabitTF.text {
+                nameHabit = text
+            }
         }
     }
 
@@ -250,6 +264,7 @@ class HabitViewController: UIViewController {
         colorSet.delegate = self
         colorSet.title = "Выберите цвет привычки"
         self.present(colorSet, animated: true, completion: nil)
+
     }
 
 
@@ -259,12 +274,8 @@ class HabitViewController: UIViewController {
         let delete = UIAlertAction(title: "Удалить", style: .destructive) { [self] _  in
             if let thisHabit = habit {
                 HabitsStore.shared.habits.removeAll(where: {$0 == thisHabit})
-                HabitsViewController.habitCollectionView.reloadData()
-
             }
             navigationController?.popToRootViewController(animated: true)
-            navigationController?.tabBarController?.tabBar.isHidden = false
-
         }
         alert.addAction(cancel)
         alert.addAction(delete)
@@ -279,6 +290,14 @@ extension HabitViewController: UIColorPickerViewControllerDelegate {
 
     func colorPickerViewControllerDidFinish(_ viewController: UIColorPickerViewController) {
         colorHabit = viewController.selectedColor
+        universalSaveButton()
+    }
+
+    func equotable() -> Bool {
+        return habit?.name == nameHabitTF.text &&
+        habit?.date == datePicker.date &&
+        habit?.color == colorSelection.backgroundColor
+
     }
 
 }
